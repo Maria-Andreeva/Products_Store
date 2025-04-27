@@ -1,12 +1,18 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store/store';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppDispatch, RootState} from '../store/store';
 import { Link } from 'react-router-dom';
+import {fetchProducts} from "../redux/productSlice";
 
 const HomePage: React.FC = () => {
     const products = useSelector((state: RootState) => state.products.products);
 
     const popularProducts = products.filter(product => product.liked);
+
+    const dispatch = useDispatch<AppDispatch>();
+    useEffect(() => {
+        dispatch(fetchProducts());
+    }, [dispatch]);
 
     return (
         <div className="bg-gray-50 min-h-screen flex flex-col">
