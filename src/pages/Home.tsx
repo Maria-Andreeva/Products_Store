@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
                         Лучшие товары для вашего комфорта. Высокое качество и доступные цены.
                     </p>
                     <Link
-                        to="/products"
+                        to="/project_test/products"
                         className="inline-block px-6 py-3 bg-yellow-400 text-gray-800 rounded-full text-lg font-semibold hover:bg-yellow-300 transition"
                     >
                         Посмотреть товары
