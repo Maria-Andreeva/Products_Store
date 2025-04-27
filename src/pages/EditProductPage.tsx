@@ -28,7 +28,7 @@ const EditProductPage: React.FC = () => {
         };
 
         dispatch(updateProduct(updatedProduct));
-        navigate('/products');
+        navigate('/project_test/products');
     };
 
     return (

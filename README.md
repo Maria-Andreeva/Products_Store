@@ -1,46 +1,130 @@
-# Getting Started with Create React App
+# 🛒 Products Store
+Приложение для управления продуктами: добавление, редактирование и удаление товаров. Построено на **React 19 + TypeScript + Redux Toolkit**, с использованием **Firebase** для хранения данных.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📂 Структура проекта
+```
+products-store/
+├── public/
+│   └── index.html
+├── src/
+│   ├── api/
+│   │   └── apiClient.ts        # Работа с Firebase API
+│   ├── components/
+│   │   └── ProductList.tsx      # Компонент списка продуктов
+│   ├── pages/
+│   │   ├── CreateProductPage.tsx # Страница создания продукта
+│   │   ├── EditProductPage.tsx   # Страница редактирования продукта
+│   │   └── HomePage.tsx          # Главная страница
+│   ├── redux/
+│   │   └── productSlice.ts       # Redux slice для продуктов
+│   ├── store/
+│   │   └── store.ts              # Настройка Redux Store
+│   ├── types/
+│   │   └── Product.ts            # Типы данных
+│   ├── App.tsx                   # Основной роутинг приложения
+│   ├── index.tsx                 # Точка входа
+│   └── main.css                  # Глобальные стили (опционально)
+├── .env                           # Переменные окружения (ключи Firebase)
+├── package.json
+├── tsconfig.json
+└── vite.config.ts / webpack.config.js
+```
 
-## Available Scripts
+## 🚀 Технологии
 
-In the project directory, you can run:
+* **React 19** - последняя версия React.
 
-### `npm start`
+* **TypeScript** - строгая типизация проекта.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* **Redux Toolkit** - удобная работа с состоянием.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* **React Router v6** - маршрутизация.
 
-### `npm test`
+* **Firebase Realtime Database / Firestore** - хранение продуктов.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Axios (или native ```fetch```)** - для работы с запросами.
 
-### `npm run build`
+* **Vite** - сборка проекта (если выбрал его).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚙️ Установка и запуск проекта
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+** 1. Клонируем репозиторий:**
+```
+git clone https://github.com/your-username/products-store.git
+cd products-store
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**2. Устанавливаем зависимости:**
+```
+npm install
+```
+>**Если будут конфликты зависимостей (ERESOLVE ошибки), можно попробовать:**
+>```
+>npm install --legacy-peer-deps
+>```
+>или
+>```
+>npm install --force
+>```
 
-### `npm run eject`
+**3. Настраиваем .env файл:**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Создаем ```.env``` в корне проекта и прописываем туда данные от Firebase:
+```
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
+VITE_FIREBASE_DATABASE_URL=https://your_project_id.firebaseio.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**4. Запускаем проект:**
+```
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Приложение будет доступно на:
+```
+http://localhost:3000 - локально
+```
+и на
+```
+https://maria-andreeva.github.io/project_test/ - удаленно
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 📦 Основные файлы
+* **api/apiClient.ts** - настройка работы с Firebase через REST API или библиотеку SDK.
 
-## Learn More
+* **redux/productSlice.ts** - хранение состояния списка продуктов + async thunk для загрузки/добавления/обновления/удаления продуктов.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* **pages/CreateProductPage.tsx** - страница для создания нового продукта через форму.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* **pages/EditProductPage.tsx** - страница для редактирования существующего продукта.
+
+* **components/ProductList.tsx** - компонент отображающий список товаров.
+
+## 🛠 Команды
+
+|**Скрипт**|**Описание**|
+|-----------|----------------------|
+|```npm run dev```|Запуск проекта в режиме разработки|
+|```npm run build```|Сборка проекта для продакшена|
+|```npm run preview```|Предпросмотр продакшн-сборки|
+
+## 🧠 Особенности проекта
+* Firebase используется как backend для хранения данных.
+* Использование ```.env``` для защиты ключей API.
+* Чистая структура проекта.
+* Возможность быстро добавлять новые страницы и расширять проект.
+
+## 📜 Лицензия
+Все права защищены.  
+Этот проект является интеллектуальной собственностью [Maria Andreeva](https://github.com/Maria-Andreeva).  
+Копирование, использование, распространение или модификация без письменного разрешения автора запрещены.
+
+## 💬 Контакты
+[Maria Andreeva](https://github.com/Maria-Andreeva)
+
+
