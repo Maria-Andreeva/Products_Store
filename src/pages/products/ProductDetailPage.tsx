@@ -61,7 +61,7 @@ const ProductDetailPage: React.FC = () => {
 
                 <div className="flex gap-4 mt-4">
                     <button
-                        onClick={() => navigate('/products')}
+                        onClick={() => navigate('/project_test/products')}
                         className="px-5 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition"
                     >
                         Назад
