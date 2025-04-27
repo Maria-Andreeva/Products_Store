@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
                         Список товаров
                     </Link>
                     <Link
-                        to="/project_test/create-product"
+                        to="/create-product"
                         className="text-white px-4 py-2 hover:bg-blue-700 rounded-md transition duration-300"
                     >
                         Добавить товар
