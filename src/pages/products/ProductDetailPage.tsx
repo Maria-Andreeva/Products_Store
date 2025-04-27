@@ -1,16 +1,17 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import {deleteProduct, toggleLike} from '../../redux/productSlice';
+import {deleteProduct, toggleLike, updateProduct} from '../../redux/productSlice';
 import { Trash2, Pencil } from 'lucide-react';
 import {HeartIcon as SolidHeartIcon} from "@heroicons/react/24/solid";
 import {HeartIcon as OutlineHeartIcon} from "@heroicons/react/24/outline";
+import {useAppDispatch} from "../../store/useAppDispatch";
 
 const ProductDetailPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const product = useSelector((state: RootState) =>
         state.products.products.find(p => p.id === id)
@@ -28,6 +29,8 @@ const ProductDetailPage: React.FC = () => {
     };
     const handleLikeToggle = () => {
         dispatch(toggleLike(product.id));
+        const updatedProduct = { ...product, liked: !product.liked };
+        dispatch(updateProduct(updatedProduct));
     };
 
     return (
@@ -84,4 +87,3 @@ const ProductDetailPage: React.FC = () => {
 };
 
 export default ProductDetailPage;
-

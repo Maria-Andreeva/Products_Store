@@ -1,8 +1,8 @@
 import React from 'react';
 import ProductForm from '../components/ProductForm';
-import { useDispatch } from 'react-redux';
 import { addProduct } from '../redux/productSlice';
 import { useNavigate } from 'react-router-dom';
+import {useAppDispatch} from "../store/useAppDispatch";
 
 interface ProductFormData {
     title: string;
@@ -11,7 +11,7 @@ interface ProductFormData {
 }
 
 const CreateProductPage: React.FC = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const handleCreate = (data: ProductFormData) => {

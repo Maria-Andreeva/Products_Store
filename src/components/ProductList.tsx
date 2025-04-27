@@ -1,15 +1,22 @@
-import React, { useState, useMemo } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store/store';
+import React, { useState, useMemo, useEffect  } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppDispatch, RootState} from '../store/store';
 import ProductCard from '../components/ProductCard';
 import { Link } from 'react-router-dom';
+import { fetchProducts } from '../redux/productSlice';
 
 const ProductList: React.FC = () => {
+    const dispatch = useDispatch<AppDispatch>();
+
     const products = useSelector((state: RootState) => state.products.products);
     const [showOnlyLiked, setShowOnlyLiked] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState('');
     const productsPerPage = 6;
+
+    useEffect(() => {
+        dispatch(fetchProducts());
+    }, [dispatch]);
 
     const filteredProducts = useMemo(() => {
         let result = products;

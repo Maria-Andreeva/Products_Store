@@ -1,14 +1,15 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { updateProduct } from '../redux/productSlice';
 import ProductForm from '../components/ProductForm';
+import {useAppDispatch} from "../store/useAppDispatch";
 
 const EditProductPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const product = useSelector((state: RootState) =>
         state.products.products.find(p => p.id === id)

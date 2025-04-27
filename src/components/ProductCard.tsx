@@ -4,21 +4,24 @@ import { HeartIcon as SolidHeartIcon, TrashIcon } from '@heroicons/react/24/soli
 import { PencilIcon } from '@heroicons/react/24/outline';
 import { Product } from '../types/Product';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { toggleLike, deleteProduct } from '../redux/productSlice';
+import {toggleLike, deleteProduct, updateProduct} from '../redux/productSlice';
 import { Link } from 'react-router-dom';
+import {useAppDispatch} from "../store/useAppDispatch";
+
 
 interface ProductCardProps {
     product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const handleLikeToggle = () => {
         dispatch(toggleLike(product.id));
-    };
+        const updatedProduct = { ...product, liked: !product.liked };
+        dispatch(updateProduct(updatedProduct));
+    }
 
     const handleDelete = () => {
         dispatch(deleteProduct(product.id));

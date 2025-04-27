@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, Button } from '@mui/material';
-import { Product } from '../types/Product';
-import api from '../api/apiClient';
 
 
 interface FormData {
