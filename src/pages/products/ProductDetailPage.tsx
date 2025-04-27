@@ -24,7 +24,7 @@ const ProductDetailPage: React.FC = () => {
     const handleDelete = () => {
         if (window.confirm('Удалить этот продукт?')) {
             dispatch(deleteProduct(product.id));
-            navigate('/products');
+            navigate('/project_test/products');
         }
     };
     const handleLikeToggle = () => {
