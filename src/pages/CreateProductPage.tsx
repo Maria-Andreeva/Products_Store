@@ -24,7 +24,7 @@ const CreateProductPage: React.FC = () => {
         };
 
         dispatch(addProduct(newProduct));
-        navigate('/products');
+        navigate('/project_test/products');
     };
 
     return (
