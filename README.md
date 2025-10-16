@@ -1,64 +1,62 @@
 # 🛒 Products Store
-Приложение для управления продуктами: добавление, редактирование и удаление товаров. Построено на **React 19 + TypeScript + Redux Toolkit**, с использованием **Firebase** для хранения данных.
+## 🇬🇧 Description
+A product management application: add, edit, and delete products. Built with **React 19 + TypeScript + Redux Toolkit**, using **Firebase** for data storage.
 
-## 📂 Структура проекта
+## 🇩🇪 Beschreibung
+Eine Produktverwaltungsanwendung: Produkte hinzufügen, bearbeiten und löschen. Entwickelt mit **React 19 + TypeScript + Redux Toolkit**, unter Verwendung von **Firebase** zur Datenspeicherung.
+
+## 📂 Project Structure / Projektstruktur
 ```
 products-store/
 ├── public/
-│   └── index.html
+│ └── index.html
 ├── src/
-│   ├── api/
-│   │   └── apiClient.ts        # Работа с Firebase API
-│   ├── components/
-│   │   └── ProductList.tsx      # Компонент списка продуктов
-│   ├── pages/
-│   │   ├── CreateProductPage.tsx # Страница создания продукта
-│   │   ├── EditProductPage.tsx   # Страница редактирования продукта
-│   │   └── HomePage.tsx          # Главная страница
-│   ├── redux/
-│   │   └── productSlice.ts       # Redux slice для продуктов
-│   ├── store/
-│   │   └── store.ts              # Настройка Redux Store
-│   ├── types/
-│   │   └── Product.ts            # Типы данных
-│   ├── App.tsx                   # Основной роутинг приложения
-│   ├── index.tsx                 # Точка входа
-│   └── main.css                  # Глобальные стили (опционально)
-├── .env                           # Переменные окружения (ключи Firebase)
+│ ├── api/
+│ │ └── apiClient.ts # Firebase API integration / Firebase API Integration
+│ ├── components/
+│ │ └── ProductList.tsx # Product list component / Produktlisten-Komponente
+│ ├── pages/
+│ │ ├── CreateProductPage.tsx # Create product page / Seite zur Produkterstellung
+│ │ ├── EditProductPage.tsx # Edit product page / Seite zur Produktbearbeitung
+│ │ └── HomePage.tsx # Home page / Startseite
+│ ├── redux/
+│ │ └── productSlice.ts # Redux slice for products / Redux-Slice für Produkte
+│ ├── store/
+│ │ └── store.ts # Redux store configuration / Redux-Store Konfiguration
+│ ├── types/
+│ │ └── Product.ts # Data types / Datentypen
+│ ├── App.tsx # Main routing / Haupt-Routing
+│ ├── index.tsx # Entry point / Einstiegspunkt
+│ └── main.css # Global styles / Globale Styles
+├── .env # Environment variables (Firebase keys) / Umgebungsvariablen (Firebase)
 ├── package.json
 ├── tsconfig.json
 └── vite.config.ts / webpack.config.js
 ```
 
-## 🚀 Технологии
+## 🚀 Technologies / Technologien
 
-* **React 19** - последняя версия React.
+* **React 19** - latest version / neueste Version  
+* **TypeScript** - strict typing / strenge Typisierung  
+* **Redux Toolkit** - state management / Zustandsverwaltung  
+* **React Router v6** - routing / Routing  
+* **Firebase Realtime Database / Firestore** - data storage / Datenspeicherung  
+* **Axios (or native fetch)** - API requests / API-Anfragen  
+* **Vite** - project build / Projekt-Build  
 
-* **TypeScript** - строгая типизация проекта.
+## ⚙️ Installation and Run / Installation und Ausführung
 
-* **Redux Toolkit** - удобная работа с состоянием.
-
-* **React Router v6** - маршрутизация.
-
-* **Firebase Realtime Database / Firestore** - хранение продуктов.
-
-* **Axios (или native ```fetch```)** - для работы с запросами.
-
-* **Vite** - сборка проекта (если выбрал его).
-
-## ⚙️ Установка и запуск проекта
-
-** 1. Клонируем репозиторий:**
+** 1. Clone the repository / Repository klonen:**
 ```
 git clone https://github.com/your-username/products-store.git
 cd products-store
 ```
 
-**2. Устанавливаем зависимости:**
+**2. Install dependencies / Abhängigkeiten installieren:**
 ```
 npm install
 ```
->**Если будут конфликты зависимостей (ERESOLVE ошибки), можно попробовать:**
+>**If dependency conflicts occur (ERESOLVE errors) / Bei Abhängigkeitskonflikten:**
 >```
 >npm install --legacy-peer-deps
 >```
@@ -67,9 +65,7 @@ npm install
 >npm install --force
 >```
 
-**3. Настраиваем .env файл:**
-
-Создаем ```.env``` в корне проекта и прописываем туда данные от Firebase:
+**3. Set up the **.env** file / .env Datei erstellen:**
 ```
 VITE_FIREBASE_API_KEY=your_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
@@ -80,51 +76,48 @@ VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 VITE_FIREBASE_APP_ID=your_app_id
 ```
 
-**4. Запускаем проект:**
+**4. Run the project / Projekt starten:**
 ```
 npm start
 ```
 
-Приложение будет доступно на:
+Access:
 ```
-http://localhost:3000 - локально
+http://localhost:3000 - locally / lokal
 ```
 и на
 ```
-https://maria-andreeva.github.io/project_test/ - удаленно
+https://maria-andreeva.github.io/project_test/ - remotely / remote
 ```
 
-## 📦 Основные файлы
-* **api/apiClient.ts** - настройка работы с Firebase через REST API или библиотеку SDK.
+## 📦 Key Files / Wichtige Dateien
+* **api/apiClient.ts** - Firebase setup via REST API or SDK / Firebase-Konfiguration via REST API oder SDK  
+* **redux/productSlice.ts** - product state + async thunk for CRUD / Produktspeicher + Async-Thunk für CRUD  
+* **pages/CreateProductPage.tsx** - create new product page / Seite zur Produkterstellung  
+* **pages/EditProductPage.tsx** - edit existing product page / Seite zur Produktbearbeitung  
+* **components/ProductList.tsx** - display product list / Produktlisten-Komponente  
 
-* **redux/productSlice.ts** - хранение состояния списка продуктов + async thunk для загрузки/добавления/обновления/удаления продуктов.
+## 🛠 Scripts / Befehle
 
-* **pages/CreateProductPage.tsx** - страница для создания нового продукта через форму.
+| **Script** | **Description / Beschreibung** |
+|-----------|-------------------------------|
+| `npm run dev` | Run in development mode / Entwicklungsmodus starten |
+| `npm run build` | Build project for production / Projekt für Produktion bauen |
+| `npm run preview` | Preview production build / Vorschau Produktions-Build |
 
-* **pages/EditProductPage.tsx** - страница для редактирования существующего продукта.
+## 🧠 Features / Besonderheiten
+* Firebase as backend / Firebase als Backend  
+* `.env` to protect API keys / `.env` zum Schutz der API-Schlüssel  
+* Clean project structure / Saubere Projektstruktur  
+* Easy to extend with new pages / Einfach erweiterbar
+  
+## 📜 License / Lizenz
+All rights reserved. Unauthorized use, copying, distribution or modification is prohibited.  
+Alle Rechte vorbehalten. Nutzung, Kopieren, Verbreitung oder Modifikation ohne schriftliche Genehmigung ist verboten.
 
-* **components/ProductList.tsx** - компонент отображающий список товаров.
+---
 
-## 🛠 Команды
-
-|**Скрипт**|**Описание**|
-|-----------|----------------------|
-|```npm run dev```|Запуск проекта в режиме разработки|
-|```npm run build```|Сборка проекта для продакшена|
-|```npm run preview```|Предпросмотр продакшн-сборки|
-
-## 🧠 Особенности проекта
-* Firebase используется как backend для хранения данных.
-* Использование ```.env``` для защиты ключей API.
-* Чистая структура проекта.
-* Возможность быстро добавлять новые страницы и расширять проект.
-
-## 📜 Лицензия
-Все права защищены.  
-Этот проект является интеллектуальной собственностью [Maria Andreeva](https://github.com/Maria-Andreeva).  
-Копирование, использование, распространение или модификация без письменного разрешения автора запрещены.
-
-## 💬 Контакты
+## 💬 Contact / Kontakte
 [Maria Andreeva](https://github.com/Maria-Andreeva)
 
 
